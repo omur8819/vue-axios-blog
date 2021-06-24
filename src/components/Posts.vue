@@ -16,6 +16,7 @@
 
 <script>
   import axios from 'axios';
+  import customAxios from '../custom_axios';
   export default{
     data(){
       return {
@@ -23,7 +24,17 @@
       }
     },
     created(){
-      axios.get("https://vuejs-axios-blog-44ce8-default-rtdb.europe-west1.firebasedatabase.app/posts.json")
+      // axios.get("/posts.json")
+      //   .then(response => {
+      //     let data = response.data;
+      //     console.log(`response.data`, response.data);
+      //     for(let key in data){
+      //       this.postList.push({ ...data[key], id: key})
+      //     }
+      //   })
+      //   .catch(error => console.log(error))
+
+      customAxios.get("/posts.json")
         .then(response => {
           let data = response.data;
           console.log(`response.data`, response.data);

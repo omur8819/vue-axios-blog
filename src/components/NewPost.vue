@@ -30,6 +30,7 @@
 </template>
 <script>
   import axios from 'axios';
+  import customAxios from '../custom_axios';
   export default {
     data(){
       return {
@@ -45,7 +46,14 @@
     },
     methods : {
       onSubmit(){
-        axios.post("https://vuejs-axios-blog-44ce8-default-rtdb.europe-west1.firebasedatabase.app/posts.json", { ...this.post, updatedDate : new Date() })
+        // axios.post("/posts.json", { ...this.post, updatedDate : new Date() })
+        // .then(response => {
+        //   console.log(response)
+        // })
+        // .catch(error => console.log(error))
+
+
+        customAxios.post("/posts.json", { ...this.post, updatedDate : new Date() })
         .then(response => {
           console.log(response)
         })
